@@ -8,11 +8,18 @@
     "nodemoon": "nodemon server.js",
     "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "data.json"
+    ]
+  },
   "keywords": [],
   "author": "Wellington Cid",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "intl": "^1.2.5",
+    "method-override": "^3.0.0",
     "nunjucks": "^3.2.1"
   },
   "devDependencies": {
