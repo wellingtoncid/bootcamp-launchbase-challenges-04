@@ -41,7 +41,7 @@ header {
     position: relative;
 }
 
-links a.active {
+.links a.active {
     font-weight: bold;
     color: cyan;
 }
@@ -76,6 +76,7 @@ links a.active {
     grid-template-columns: 40% 1fr;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.4);
     animation-name: up 800ms ease-out;
+    position: relative;
     /* animation-duration: 800ms;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
@@ -141,6 +142,7 @@ links a.active {
 
 /* FORM */
 
+select,
 input {
     width: 100%;
     outline: none;
@@ -152,9 +154,10 @@ input {
 input[type="radio"] {
     width: initial;
     margin-right: 4px;
+    vertical-align: middle;
 }
 
-select,
+
 input[type="date"],
 input::placeholder {
     font-size: 16px;
@@ -172,6 +175,7 @@ a.button {
     margin-top: 32px;
     width: 100%;
     font-size: 16px;
+    cursor: pointer;
 }
 
 a.button {
@@ -184,5 +188,93 @@ a.button {
 #form-delete button {
     background-color: red;
     color: white;
+    width: 24%;
+    position: absolute;
+    bottom: 32px;
+    right: 16px;
 }
 
+#save {
+    width: 45%;
+}
+
+/* INDEX TEACHERS */
+
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container tr th {
+    text-align: left;
+}
+
+td, th {
+    padding: 16px;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+}
+
+tbody tr td:last-child a,
+.table-container a {
+    background-color: cyan;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.table-container a {
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+tbody tr td:nth-child(2) span {
+    font-size: 12px;
+    padding: 8px 16px;
+    background-color: darkcyan;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    margin-right: 4px;
+    margin-top: 8px;
+    text-transform: uppercase;   
+}

@@ -1,0 +1,86 @@
+   <div class="item">
+        <div>Avatar URL</div>
+        <div>
+            <input 
+            type="url" 
+            name="avatar_url" 
+            placeholder="http://"
+            value="{{ student.avatar_url }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Student Name</div>
+        <div>
+            <input 
+            type="text" 
+            name="name" 
+            placeholder="My name"
+            value="{{ student.name }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>E-mail</div>
+        <div>
+            <input 
+            type="email" 
+            name="email" 
+            placeholder="email@host.com"
+            value="{{ student.email }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Birthday</div>
+        <div>
+            <input type="date" 
+            name="dob" 
+            placeholder=""
+            value="{{ student.dob }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Scholar year</div>
+        <div>
+            <select name="degree">
+                <option 
+                    value="High School"
+                    {% if student.degree == "High School" %}
+                        selected
+                    {% endif %}>High School
+                </option>
+                <option 
+                    value="College"
+                    {% if student.degree == "College" %}
+                        selected
+                    {% endif %}>College
+                </option>
+                <option 
+                    value="Master's"
+                    {% if student.degree == "Master's" %}
+                        selected
+                    {% endif %}>Master's
+                </option>
+                <option 
+                    value="Doctorate"
+                    {% if student.degree == 'Doctorate' %}
+                        selected
+                    {% endif %}>Doctorate
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Weekly classroom hours</div>
+        <div>
+            <input type="number" 
+            name="course_hours"
+            placeholder="Course load in hours."
+            value="{{ student.course_hours }}">
+        </div>
+    </div>
+
+    <button id="save" type="submit">Save</button>

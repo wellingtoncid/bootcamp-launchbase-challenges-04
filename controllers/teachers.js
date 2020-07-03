@@ -1,8 +1,24 @@
 const fs = require('fs')
-const data = require("./data.json")
-const {age, date, education} = require('./utils')
+const data = require("../data.json")
+const {age, date, education,} = require('../utils')
 const Intl = require('intl')
 
+exports.index = function (req, res) {
+
+    const teachers = data.teachers.map(function(teacher) {
+        const spreadTeacher = {
+            ...teacher,
+            attendence: teacher.attendence.split(',')
+        }
+        return spreadTeacher
+    })    
+
+    return res.render('teachers/index', { teachers })
+}
+
+exports.create = function (req, res) {
+    return res.render('teachers/create')
+}
 
 exports.show = function (req,res) {
     const { id } = req.params
@@ -17,7 +33,7 @@ exports.show = function (req,res) {
         ...foundTeacher,
         age: age(foundTeacher.dob),
         degree: education(foundTeacher.degree),
-        attendance: foundTeacher.attendence.split(","),
+        attendence: foundTeacher.attendence.split(","),
         created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.create),
     }
 
@@ -39,8 +55,7 @@ exports.post = function (req, res) {
     dob = Date.parse(dob)
     const created_at = Date.now()
     const id = Number(data.teachers.length + 1)
-
-
+    
     data.teachers.push({
         id,
         avatar_url,
@@ -71,7 +86,7 @@ exports.edit = function (req, res) {
 
     const teacher = {
         ...foundTeacher,
-        dob: date(foundTeacher.dob)
+        dob: date(foundTeacher.dob).iso
     }
 
     return res.render('teachers/edit', { teacher })
